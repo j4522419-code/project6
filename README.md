@@ -24,7 +24,13 @@ live.
   <img src="docs/phone-app.png" alt="Shared files on a phone" width="260">
 </p>
 
-## Running it
+## Download
+
+Grab the latest version from the **[Releases page](https://github.com/j4522419-code/project6/releases/latest)**.
+Pick the zip for your computer (Windows, Mac or Linux), unzip it and run **PairShare**. .NET is
+built in, so there's nothing else to install.
+
+## Running from source
 
 You need the [.NET 8 SDK](https://dotnet.microsoft.com/download) (or newer) on the computer.
 
@@ -154,4 +160,15 @@ tests/PairShare.Tests/    unit tests + in-memory API tests (xUnit)
 
 ```bash
 dotnet test
+```
+
+## Making a release
+
+Push a version tag. The [Release workflow](.github/workflows/release.yml) runs the tests, builds
+single-file apps for Windows (x64/ARM64), macOS (Apple silicon/Intel) and Linux, and publishes
+them as a GitHub Release. Notes come from `docs/release-notes/<tag>.md` if that file exists.
+
+```bash
+git tag v1.0.1
+git push origin v1.0.1
 ```

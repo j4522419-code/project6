@@ -58,8 +58,8 @@ internal static class CommandLine
 
     public static void PrintHelp()
     {
-        Console.WriteLine("""
-            PairShare - share files between this computer and your phone over Wi-Fi.
+        Console.WriteLine($"""
+            PairShare {AppInfo.Version} - share files between this computer and your phone over Wi-Fi.
 
             Usage: PairShare [options]
 

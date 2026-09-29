@@ -26,7 +26,7 @@ internal static class Banner
         Console.ForegroundColor = ConsoleColor.Cyan;
         Console.Write("  PairShare");
         Console.ResetColor();
-        Console.WriteLine($" is running on {Environment.MachineName}");
+        Console.WriteLine($" {AppInfo.Version} is running on {Environment.MachineName}");
         Console.WriteLine();
         Row("Dashboard", dashboard);
         Row("Link", link);
