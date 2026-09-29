@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>PairShare</title>
+  <link rel="icon" href="/assets/icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/assets/app.css">
+  <script src="/assets/common.js" defer></script>
+  <script src="/assets/host.js" defer></script>
+</head>
+<body class="host-page">
+  <header class="topbar">
+    <div class="brand"><img src="/assets/icon.svg" alt="" width="30" height="30"> PairShare</div>
+    <span class="pill"><span class="dot live" id="status-dot"></span><span class="truncate">Host: <strong id="host-name">this computer</strong></span></span>
+  </header>
+
+  <main class="host-grid">
+    <section class="card connect" aria-labelledby="connect-title">
+      <h2 id="connect-title">Connect a device</h2>
+
+      <div class="qr-row">
+        <figure class="qr-card">
+          <div class="qr-frame"><img id="qr-link" alt="QR code that opens the PairShare link"></div>
+          <figcaption><strong>Scan to open</strong><span class="qr-sub">then type the pair code</span></figcaption>
+        </figure>
+        <figure class="qr-card quick">
+          <div class="qr-frame"><img id="qr-quick" alt="Quick pair QR code"></div>
+          <figcaption><strong>Quick pair <span class="badge">Phone</span></strong><span class="qr-sub">scan with the camera, no code needed</span></figcaption>
+        </figure>
+      </div>
+
+      <span class="label">Link</span>
+      <div class="link-row">
+        <input id="link" class="input" readonly aria-label="PairShare link">
+        <button id="copy-link" class="btn" type="button">Copy</button>
+      </div>
+      <label class="addr-picker" id="addr-picker" hidden>Network address <select id="addr-select"></select></label>
+      <p class="warning" id="offline-warning" hidden>This computer doesn't seem to be on a network, so other devices can't reach it yet.</p>
+
+      <div class="code-block">
+        <span class="label">Pair code</span>
+        <div class="code-row">
+          <div id="pair-code" class="pair-code" aria-live="polite">––– –––</div>
+          <button id="regenerate" class="btn ghost small" type="button">New code</button>
+        </div>
+        <div class="expiry">
+          <div class="bar"><span id="expiry-bar"></span></div>
+          <span id="expiry-text" class="muted"></span>
+        </div>
+        <p class="muted small code-note">Each code and quick-pair QR works once. A fresh one appears after every pairing.</p>
+      </div>
+    </section>
+
+    <section class="card devices" aria-labelledby="devices-title">
+      <h2 id="devices-title">Paired devices <span class="count" id="device-count">0</span></h2>
+      <ul id="device-list" class="list"></ul>
+      <p id="no-devices" class="empty">No devices yet. Scan one of the QR codes with your phone.</p>
+    </section>
+
+    <section class="card files" aria-labelledby="files-title">
+      <div class="card-head">
+        <h2 id="files-title">Shared files</h2>
+        <div class="actions">
+          <button id="open-folder" class="btn ghost" type="button">Open folder</button>
+          <label class="btn primary">Send files<input id="file-input" type="file" multiple hidden></label>
+        </div>
+      </div>
+      <p class="folder-line"><span aria-hidden="true">📁</span><code id="folder-path" class="truncate"></code></p>
+      <div class="drop-zone"><strong>Drop files here</strong> to share them with your paired devices</div>
+      <ul id="upload-list" class="list upload-list"></ul>
+      <ul id="file-list" class="list"></ul>
+      <p id="no-files" class="empty" hidden>Nothing shared yet. Files you send, and files your devices send, show up here.</p>
+    </section>
+  </main>
+
+  <div id="toasts" class="toasts" aria-live="polite"></div>
+</body>
+</html>

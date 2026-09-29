@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#5046e5">
+  <title>Pair · PairShare</title>
+  <link rel="icon" href="/assets/icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/assets/app.css">
+  <script src="/assets/common.js" defer></script>
+  <script src="/assets/pair.js" defer></script>
+</head>
+<body class="pair-page">
+  <main class="card pair-card" id="pair-card">
+    <img src="/assets/icon.svg" class="pair-logo" alt="" width="60" height="60">
+
+    <div id="pair-view">
+      <h1>Pair with <span id="host-name">this computer</span></h1>
+      <p class="muted">Enter the 6-digit pair code shown in PairShare on the computer.</p>
+      <p class="notice" id="notice" hidden></p>
+
+      <form id="pair-form" autocomplete="off" novalidate>
+        <div class="code-inputs" id="code-inputs" role="group" aria-label="Pair code">
+          <input inputmode="numeric" autocomplete="one-time-code" aria-label="Digit 1" autofocus>
+          <input inputmode="numeric" autocomplete="off" aria-label="Digit 2">
+          <input inputmode="numeric" autocomplete="off" aria-label="Digit 3">
+          <span class="gap" aria-hidden="true"></span>
+          <input inputmode="numeric" autocomplete="off" aria-label="Digit 4">
+          <input inputmode="numeric" autocomplete="off" aria-label="Digit 5">
+          <input inputmode="numeric" autocomplete="off" aria-label="Digit 6">
+        </div>
+
+        <label class="name-field">
+          <span class="label">This device's name</span>
+          <input id="device-name" class="input" maxlength="40" autocomplete="off" autocapitalize="words" spellcheck="false">
+        </label>
+
+        <button class="btn primary block big" id="pair-btn" type="submit">Pair</button>
+        <p id="error" class="error" role="alert"></p>
+      </form>
+
+      <p class="muted hint">On a phone? Scan the <strong>Quick pair</strong> QR code on the computer to skip the code.</p>
+    </div>
+
+    <div id="success-view" class="success-view" hidden>
+      <div class="success-check" aria-hidden="true">✓</div>
+      <h1>Paired!</h1>
+      <p class="muted">Opening your shared files…</p>
+    </div>
+  </main>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#5046e5">
+  <title>PairShare</title>
+  <link rel="icon" href="/assets/icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/assets/app.css">
+  <script src="/assets/common.js" defer></script>
+  <script src="/assets/device.js" defer></script>
+</head>
+<body class="device-page">
+  <header class="topbar">
+    <div class="brand"><img src="/assets/icon.svg" alt="" width="30" height="30"> PairShare</div>
+    <button id="disconnect" class="btn ghost small" type="button">Disconnect</button>
+  </header>
+
+  <main>
+    <section class="card hero" aria-label="Send files">
+      <div class="status-line">
+        <span class="dot live" id="status-dot"></span>
+        <span id="status-text">Connected to <strong class="host-name">the computer</strong></span>
+      </div>
+      <p class="muted small">This device appears as <strong id="me-name"></strong>.</p>
+      <label class="btn primary block big">
+        <span aria-hidden="true">⬆</span> Send files to <span class="host-name">the computer</span>
+        <input id="file-input" type="file" multiple hidden>
+      </label>
+      <div class="drop-zone"><strong>Drop files here</strong> to send them</div>
+      <ul id="upload-list" class="list upload-list"></ul>
+    </section>
+
+    <section class="card" aria-labelledby="files-title">
+      <h2 id="files-title">Shared files</h2>
+      <ul id="file-list" class="list"></ul>
+      <p id="no-files" class="empty" hidden>Nothing shared yet. Files sent from the computer show up here.</p>
+    </section>
+  </main>
+
+  <div id="toasts" class="toasts" aria-live="polite"></div>
+</body>
+</html>
